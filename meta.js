@@ -18,11 +18,17 @@ module.exports = {
       "type": "string",
       "required": false,
       "message": "Project description",
-      "default": "A Vue.js project"
+      "default": "A Wordpress + Vue.js project"
     },
     "author": {
       "type": "string",
       "message": "Author"
+    },
+    "port": {
+      "type": "number",
+      "required": true,
+      "message": "Dev server port",
+      "default": 8383
     },
     "build": {
       "type": "list",
@@ -39,10 +45,6 @@ module.exports = {
           "short": "runtime"
         }
       ]
-    },
-    "router": {
-      "type": "confirm",
-      "message": "Install vue-router?"
     },
     "lint": {
       "type": "confirm",
@@ -85,8 +87,7 @@ module.exports = {
     "config/test.env.js": "unit || e2e",
     "test/unit/**/*": "unit",
     "build/webpack.test.conf.js": "unit",
-    "test/e2e/**/*": "e2e",
-    "src/router/**/*": "router"
+    "test/e2e/**/*": "e2e"
   },
   "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };
