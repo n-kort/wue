@@ -14,6 +14,12 @@ module.exports = {
       "required": true,
       "message": "Project name"
     },
+    "themeFolder": {
+      "type": "string",
+      "required": true,
+      "message": "Your theme's folder",
+      "default": "wue"
+    },
     "description": {
       "type": "string",
       "required": false,

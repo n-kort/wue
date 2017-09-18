@@ -1,59 +1,22 @@
-# vue-webpack-boilerplate
+# wue
 
-> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
-
-> This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init webpack#1.0 my-project`
-
-## Documentation
-
-- [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
-- [For Vue 2.0](http://vuejs.org/guide/): general information about how to work with Vue, not specific to this template
+Efficient WP/Valet/Webpack/Vue workflow
 
 ## Usage
 
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 3+ for a more efficient dependency tree.**
+Project setup (seems long, pretty easy irl, working on condensing much of it into the `vue init` command):
 
-``` bash
-$ npm install -g vue-cli
-$ vue init webpack my-project
-$ cd my-project
-$ npm install
-$ npm run dev
-```
+1. Install [Valet](https://laravel.com/docs/5.5/valet)
+2. Install MySQL. Try `brew install mysql` and `brew services start mysql`
+3. `mkdir` and `cd` into a new project folder
+4. Fetch the latest version of WP and unzip to `./public`: `wget https://wordpress.org/latest.tar.gz && tar -xzf latest.tar.gz && mv wordpress public`
+5. Link the public folder to a Valet site: `cd public && valet link your-site`. Complete the WP installation in your browser (your-site.dev), or edit the `public/wp-config.php` file. DB credentials will be `root` with an empty password (read the Valet docs for other options)
+6. Init this template in a new theme directory: `vue init n-kort/wue public/wp-content/themes/new-theme`
+7. Make a handy shortcut `ln -s public/wp-content/themes/new-theme new-theme`
+8. `cd new-theme` and install deps `{npm|yarn} install` and `npm run dev`
+9. Log in to the local WP and activate your new theme. Start working on that theme
 
-If port 8080 is already in use on your machine you must change the port number in `/config/index.js`. Otherwise `npm run dev` will fail.
 
-## What's Included
+### src
 
-- `npm run dev`: first-in-class development experience.
-  - Webpack + `vue-loader` for single file Vue components.
-  - State preserving hot-reload
-  - State preserving compilation error overlay
-  - Lint-on-save with ESLint
-  - Source maps
-
-- `npm run build`: Production ready build.
-  - JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2).
-  - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
-  - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
-  - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
-  - Use `npm run build --report`to build with bundle size analytics.
-
-- `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Mocha](http://mochajs.org/) + [karma-webpack](https://github.com/webpack/karma-webpack).
-  - Supports ES2015+ in test files.
-  - Supports all webpack loaders.
-  - Easy mock injection.
-
-- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
-  - Run tests in multiple browsers in parallel.
-  - Works with one command out of the box:
-    - Selenium and chromedriver dependencies automatically handled.
-    - Automatically spawns the Selenium server.
-
-### Fork It And Make Your Own
-
-You can fork this repo to create your own boilerplate, and use it with `vue-cli`:
-
-``` bash
-vue init username/repo my-project
-```
+Forked from the excellent [vue-webpack-boilerplate](https://github.com/vuejs-templates/webpack). Much more info there.
