@@ -1,9 +1,11 @@
+var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 // add hot-reload related code to entry chunks
@@ -26,9 +28,13 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true
+      filename: 'index.php',
+      template: 'src/index.php',
+      inject: true,
+      alwaysWriteToDisk: true
+    }),
+    new HtmlWebpackHarddiskPlugin({
+      outputPath: path.resolve(__dirname, '../')
     }),
     new FriendlyErrorsPlugin()
   ]
