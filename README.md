@@ -17,6 +17,18 @@ Project setup (seems long, pretty easy irl, working on condensing much of it int
 9. Log in to the local WP and activate your new theme. Start working on that theme
 
 
+## Deploy
+
+* `npm run build`: Production ready build.
+
+  * JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2).
+  * HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
+  * CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
+  * All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
+  * Use `npm run build --report` to build with bundle size analytics.
+
+Built files are output to the `/dist` folder — this can be deployed as a live theme to any wp site
+
 ### src
 
 Forked from the excellent [vue-webpack-boilerplate](https://github.com/vuejs-templates/webpack). Much more info there.

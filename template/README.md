@@ -8,7 +8,7 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at a valet link
 npm run dev
 
 # build for production with minification
@@ -33,4 +33,6 @@ npm test
 {{/if_or}}
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+This template is meant to be run locally, as a WordPress theme served by [valet](https://laravel.com/docs/5.5/valet). Built files (`/dist`) can be deployed as a live theme to pretty much any wp site.
+
+See [wue](https://github.com/n-kort/wue) for further setup instructions.
